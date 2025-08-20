@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday, Susmita! 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+    /* Start overlay */
+  .overlay{
+    position:fixed; inset:0; display:grid; place-items:center;
+    background:linear-gradient(180deg, rgba(15,16,32,.9), rgba(15,16,32,.6));
+    z-index:20; text-align:center;
+  }
+  .overlay .panel{
+    background:var(--glass); border:1px solid rgba(255,255,255,.15);
+    padding:28px; border-radius:20px; text-align:center;
+    max-width:520px;
+  }
+  .overlay .badge{
+    display:inline-flex; gap:8px; align-items:center;
+    padding:6px 12px; border-radius:999px;
+    background:var(--glass); border:1px solid rgba(255,255,255,.15);
+    font-size:14px; color:rgba(255,255,255,.7); margin-bottom:12px;
+  }
+  .overlay h2{margin:8px 0 6px;}
+  .overlay p{margin:0 0 14px; color:rgba(255,255,255,.7);}
+  .overlay .btn{
+    appearance:none; border:none; padding:12px 16px;
+    border-radius:16px; font-weight:600; cursor:pointer;
+    color:var(--text);
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(var(--blur));
+    transition:transform .15s ease;
+  }
+  .overlay .btn:hover{transform:translateY(-2px);}
+
+  /* Balloons */
+  .balloons{position:fixed; inset:0; pointer-events:none; z-index:-1;}
+  .balloon{position:absolute; bottom:-120px; width:40px; height:55px;
+    border-radius:50% 50% 45% 55%/55% 55% 45% 45%;
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));
+    animation:floatUp var(--dur) linear infinite; opacity:.85;}
+  .balloon::after{
+    content:""; position:absolute; left:50%; top:52px; width:2px; height:70px; background:rgba(255,255,255,.6);
+  }
+  @keyframes floatUp{
+    from{transform:translateY(0) translateX(0) rotate(0deg);}
+    to{transform:translateY(-120vh) translateX(var(--drift)) rotate(10deg);}
+  }
+
+  /* Confetti */
+  #confetti{position:fixed; inset:0; pointer-events:none; z-index:10;}
+:root{
+  --bg1:#0f1020; --accent:#ff5fa2; --accent2:#ffd166; --text:#f7f7fb; --muted:#c9c9d6; --card:rgba(255,255,255,.08); --glass:rgba(255,255,255,.12); --blur:10px;
+}
+*{box-sizing:border-box;}
+html,body{height:100%; margin:0; font-family:Poppins,system-ui,Segoe UI,Roboto; color:var(--text); background: radial-gradient(1200px 800px at 70% -10%, #2b2c50 0%, #0f1020 40%, #0b0c18 100%) fixed; overflow-x:hidden}
+
+/* Balloons */
+.balloons{position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden}
+.balloon{position:absolute; bottom:-120px; width:40px; height:55px; border-radius:50% 50% 45% 55%/55% 55% 45% 45%; background:linear-gradient(180deg, var(--accent2), #ffa6d2); filter:drop-shadow(0 8px 14px rgba(0,0,0,.3)); animation:floatUp var(--dur) linear infinite; opacity:.85;}
+.balloon::after{content:""; position:absolute; left:50%; top:52px; width:2px; height:70px; background:rgba(255,255,255,.6);}
+@keyframes floatUp{ from{ transform:translateY(0) translateX(0) rotate(0deg);} to{ transform:translateY(-120vh) translateX(var(--drift)) rotate(10deg);} }
+
+/* Hero Section */
+header.hero{min-height:100vh; display:grid; place-items:center; text-align:center; padding:90px 16px 40px}
+.hero-inner{max-width:920px; width:100%}
+.badge{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border-radius:999px; background:var(--glass); backdrop-filter:blur(var(--blur)); border:1px solid rgba(255,255,255,.15); font-size:14px; color:var(--muted)}
+h1{font-family:"Great Vibes", cursive; font-weight:400; font-size:72px; margin:14px 0 6px; letter-spacing:.5px}
+h1 .name{color:var(--accent)}
+.subtitle{font-size:18px; color:var(--muted)}
+
+.controls{display:flex; justify-content:center; gap:12px; margin:22px 0 6px; flex-wrap:wrap}
+.btn{appearance:none; border:none; padding:12px 16px; border-radius:16px; font-weight:600; cursor:pointer; color:var(--text); background:linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.07)); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(var(--blur)); transition:transform .15s ease, opacity .2s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn.primary{background:linear-gradient(135deg, var(--accent), #a95cff);}
+
+/* Glass cards */
+.glass-card{max-width:920px; margin:22px auto; padding:22px; border-radius:24px; background:var(--card); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(var(--blur))}
+
+/* Countdown */
+.countdown{display:grid; grid-template-columns:repeat(4, minmax(80px,1fr)); gap:10px; margin-top:14px}
+.timebox{padding:16px 10px; border-radius:18px; text-align:center; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14);}
+.timebox .num{font-size:32px; font-weight:800;}
+.timebox .label{font-size:12px; color:var(--muted);}
+
+/* Typewriter */
+.typewriter{min-height:56px; font-size:22px; text-wrap:balance}
+.caret{display:inline-block; width:10px; background:currentColor; animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Gallery */
+section{padding:70px 18px}
+.section-title{font-size:28px; font-weight:800; text-align:center; margin:0 0 12px}
+.section-sub{color:var(--muted); text-align:center; margin:0 0 22px}
+.gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; max-width:1000px; margin:0 auto}
+@media(min-width:780px){ .gallery{grid-template-columns:repeat(3,1fr);} }
+.gallery img,.gallery video{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; border:1px solid rgba(255,255,255,.15); filter:saturate(1.08) contrast(1.03)}
+
+/* Surprise box */
+.surprise{display:grid; place-items:center; position:relative; margin-top:30px;}
+.gift-zone{position:relative; width:240px; height:220px; margin-top:10px}
+.gift-box{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:160px; height:120px; border-radius:16px; background:linear-gradient(135deg,#ff6aa9,#a657ff); box-shadow:0 10px 30px #0006;}
+.gift-lid{position:absolute; left:50%; top:calc(50% - 80px); transform:translateX(-50%); width:180px; height:40px; border-radius:14px; background:linear-gradient(135deg,#ffd166,#ff8fab); box-shadow:0 8px 20px #0005}
+.ribbon{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:18px; height:120px; background:#ffd166; box-shadow:inset 0 0 0 3px #fff6}
+.bow{position:absolute; left:50%; top:calc(50% - 105px); transform:translateX(-50%); font-size:34px}
+.hint{margin-top:10px; color:var(--muted); display:none}
+
+/* Cake */
+#cakeContainer {position:fixed; inset:0; display:none; justify-content:center; align-items:center; z-index:1000; flex-direction:column;}
+.cake {position:relative; width:220px; height:220px;}
+.layer {position:absolute; left:50%; transform:translateX(-50%); border-radius:50%; box-shadow:0 8px 18px rgba(0,0,0,0.3);}
+.layer-bottom {bottom:0; width:100%; height:70px; background:linear-gradient(to bottom,#d95d39,#c23b2f);}
+.layer-middle {bottom:70px; width:85%; height:50px; background:linear-gradient(to bottom,#f5c27f,#e2a65b);}
+.layer-top {bottom:120px; width:65%; height:40px; background:linear-gradient(to bottom,#fff2b3,#ffd633);}
+.candle {position:absolute; bottom:120px; width:12px; height:35px; background:#fff; transform:translateX(-50%); border-radius:3px;}
+.flame {position:absolute; top:-12px; left:50%; width:14px; height:18px; background:radial-gradient(circle, #fff37c 0%, #ff5500 70%); border-radius:50%; animation:flicker 0.15s infinite alternate;}
+@keyframes flicker {0%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(0.85);}100%{transform:translateX(-50%) scale(1.1);} }
+button#blowCandleBtn {margin-top:15px; cursor:pointer; padding:8px 15px; font-size:16px; border-radius:5px;}
+
+/* Cartoon human */
+.cartoon-human{position:fixed; width:80px; height:120px; bottom:0; left:50%; transform:translateX(-50%); z-index:2000; font-size:50px; animation:walkBox 1s forwards;}
+@keyframes walkBox{0%{bottom:0;}50%{bottom:50px;}100%{bottom:0;}}
+
+/* Boom overlay */
+#boomOverlay{position:fixed; inset:0; background:#ff0; display:none; z-index:3000; opacity:0; animation:boomAnim 1s forwards;}
+@keyframes boomAnim{0%{opacity:0; transform:scale(0);}50%{opacity:1; transform:scale(1.2);}100%{opacity:1; transform:scale(1);}}
+
+footer{padding:30px 16px; text-align:center; color:var(--muted)}
+/* Shake animation for gift box */
+@keyframes shake {
+  0% { transform: translate(0,0) rotate(0deg); }
+  10% { transform: translate(-8px,4px) rotate(-5deg); }
+  20% { transform: translate(8px,-4px) rotate(5deg); }
+  30% { transform: translate(-6px,2px) rotate(-3deg); }
+  40% { transform: translate(6px,-2px) rotate(3deg); }
+  50% { transform: translate(-4px,2px) rotate(-2deg); }
+  60% { transform: translate(4px,-2px) rotate(2deg); }
+  70% { transform: translate(-2px,1px) rotate(-1deg); }
+  80% { transform: translate(2px,-1px) rotate(1deg); }
+  90% { transform: translate(0,0) rotate(0deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+</style>
+</head>
+<body>
+    <!-- Start Overlay -->
+<div class="overlay" id="startOverlay">
+  <div class="panel">
+    <div class="badge">🎁 Surprise ready</div>
+    <h2>For my favorite person, <span style="color:var(--accent)">Susmita</span> 💖</h2>
+    <p>Tap the button to start the magic (animations + confetti)</p>
+    <button class="btn primary" id="startBtn">Start the Surprise</button>
+  </div>
+</div>
+
+<!-- Balloons -->
+<div class="balloons" id="balloons"></div>
+
+<!-- Confetti -->
+<canvas id="confetti"></canvas>
+
+<header class="hero">
+<div class="hero-inner">
+  <div class="badge">✨ Special Day • Handcrafted with love</div>
+  <h1>Happy Birthday, <span class="name">Susmita</span>! 🎂</h1>
+  <p class="subtitle">You make the world brighter. Today is all about you. 💫</p>
+
+  <div class="controls">
+    <button class="btn" id="musicToggle">▶️ Music</button>
+    <button class="btn" id="confettiBtn">🎉 Confetti</button>
+    <button class="btn" id="scrollBtn">👇 See Memories</button>
+  </div>
+
+  <div class="glass-card">
+    <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between">
+      <div>
+        <div style="font-weight:700; font-size:18px">Countdown to your day</div>
+        <div style="color:var(--muted); font-size:14px">We unlock your special surprise at midnight! ⏳</div>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="timebox"><div class="num" id="dd">00</div><div class="label">Days</div></div>
+        <div class="timebox"><div class="num" id="hh">00</div><div class="label">Hours</div></div>
+        <div class="timebox"><div class="num" id="mm">00</div><div class="label">Minutes</div></div>
+        <div class="timebox"><div class="num" id="ss">00</div><div class="label">Seconds</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="typewriter" id="typewriter" aria-live="polite"></div>
+  </div>
+</div>
+</header>
+
+<section id="memories">
+<h2 class="section-title">Our Little Gallery 📸</h2>
+<p class="section-sub">Swap these with our favorite photos & videos!</p>
+<div class="gallery">
+<img src="img/one.jpg" alt="Memory 1">
+<img src="img/two.jpg" alt="Memory 2">
+<video controls src="img/v1.mp4"></video>
+<img src="img/three.jpg" alt="Memory 4">
+<video controls src="img/v2.mp4"></video>
+<video controls src="img/v3.mp4"></video>
+</div>
+</section>
+
+<section id="final" class="surprise">
+<h2 class="section-title">A Wish From My Heart 💌</h2>
+<p class="section-sub">This box unlocks at midnight. Then, enter the secret password… ✨</p>
+
+<div class="gift-zone locked" id="giftZone" aria-live="polite">
+  <div class="gift-lid"></div>
+  <div class="gift-box"></div>
+  <div class="ribbon"></div>
+  <div class="bow">🎀</div>
+</div>
+<div class="hint" id="hint">Hint: Your nickname ❤️</div>
+<button class="btn primary" id="openBtn">Open the Surprise Box</button>
+</section>
+
+<!-- Cake -->
+<div id="cakeContainer">
+  <div class="cake">
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="candle" style="left:25%"><div class="flame"></div></div>
+    <div class="candle" style="left:50%"><div class="flame"></div></div>
+    <div class="candle" style="left:75%"><div class="flame"></div></div>
+  </div>
+  <button id="blowCandleBtn" class="btn primary">Blow Candles 🕯️</button>
+</div>
+
+<div id="boomOverlay"></div>
+
+<footer>Made with love by Kalix • © <span id="year"></span></footer>
+
+<audio id="bgm" loop>
+<source src="img/sahe.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+// Countdown
+let cakeShown = false;
+
+// Set target to today's midnight (start of next day)
+const targetDate = new Date();
+targetDate.setHours(24, 0, 0, 0);
+
+function updateCountdown() {
+  const now = new Date();
+  let diff = targetDate - now;
+  if (diff < 0) diff = 0;
+
+  const s = Math.floor(diff / 1000),
+        d = Math.floor(s / 86400),
+        h = Math.floor((s % 86400) / 3600),
+        m = Math.floor((s % 3600) / 60),
+        sec = s % 60;
+
+  document.getElementById('dd').textContent = String(d).padStart(2,'0');
+  document.getElementById('hh').textContent = String(h).padStart(2,'0');
+  document.getElementById('mm').textContent = String(m).padStart(2,'0');
+  document.getElementById('ss').textContent = String(sec).padStart(2,'0');
+
+  if(diff <= 0 && !cakeShown) showCake();
+}
+
+setInterval(updateCountdown, 1000);
+
+// Show Cake
+function showCake(){
+  document.getElementById('cakeContainer').style.display='flex';
+  document.getElementById('giftZone').classList.add('locked');
+  document.getElementById('openBtn').disabled=true;
+  cakeShown = true;
+}
+
+// Blow Candles
+document.getElementById('blowCandleBtn').addEventListener('click',()=>{
+  document.querySelectorAll('#cakeContainer .flame').forEach(f=>f.style.display='none');
+  document.getElementById('bgm').play().catch(()=>console.log("User gesture needed"));
+  document.getElementById('giftZone').classList.remove('locked');
+  document.getElementById('openBtn').disabled=false;
+  document.getElementById('cakeContainer').style.display='none';
+  document.getElementById('blowCandleBtn').disabled=true;
+});
+
+// Typewriter wishes
+const lines=["Wishing you endless joy and laughter! 🌸","May your dreams sparkle as bright as you! ✨","Here’s to another fabulous year together! 💖"];
+async function typeLine(line, el){ el.textContent=''; for(let c of line){ el.textContent+=c; await new Promise(r=>setTimeout(r,70)); } }
+async function typeSequenceLoop(lines, el){while(true){for(const l of lines){await typeLine(l,el); await new Promise(r=>setTimeout(r,900)); el.textContent=''; await new Promise(r=>setTimeout(r,300));}}}
+typeSequenceLoop(lines, document.getElementById('typewriter'));
+
+// Balloons
+(function spawnBalloons(){
+  const wrap=document.getElementById('balloons'); 
+  const colors=["#ffd166","#ff7eb6","#7afcff","#b5ff7d","#f6a6ff","#ffe082"];
+  for(let i=0;i<20;i++){
+    const b=document.createElement('div'); 
+    b.className='balloon'; 
+    b.style.left=(Math.random()*100)+'vw'; 
+    b.style.setProperty('--dur',(10+Math.random()*14)+'s'); 
+    b.style.setProperty('--drift',(Math.random()*40-20)+'px'); 
+    const c=colors[Math.floor(Math.random()*colors.length)]; 
+    b.style.background=`linear-gradient(180deg, ${c}, #ffffff88)`; 
+    wrap.appendChild(b);
+  }
+})();
+
+// Confetti
+function spawnConfetti(){
+  const wrapper = document.createElement('div');
+  wrapper.id='confettiWrapper';
+  document.body.appendChild(wrapper);
+  for(let i=0;i<50;i++){
+    const conf = document.createElement('div');
+    conf.className='confetti-piece';
+    conf.style.position='fixed';
+    conf.style.left=Math.random()*100+'vw';
+    conf.style.top='-10px';
+    conf.style.width='6px';
+    conf.style.height='12px';
+    conf.style.background=`hsl(${Math.random()*360},80%,60%)`;
+    conf.style.zIndex=1500;
+    conf.style.animation=`fall ${(2+Math.random()*3)}s linear`;
+    wrapper.appendChild(conf);
+    setTimeout(()=>wrapper.removeChild(conf),4000);
+  }
+}
+document.getElementById('confettiBtn').addEventListener('click',spawnConfetti);
+
+// Surprise Box with animated shaking
+document.getElementById('openBtn').addEventListener('click', () => {
+  const giftZone = document.getElementById('giftZone');
+
+  // Check if box is locked
+  if (giftZone.classList.contains('locked')) {
+    alert('Wait until midnight and blow the candles first!');
+    return;
+  }
+
+  const pw = prompt("Enter the password:");
+  if (pw === 'moti') {
+    // Spawn 3-4 humans with axes
+    const humanCount = 4;
+    for (let i = 0; i < humanCount; i++) {
+      const human = document.createElement('div');
+      human.className = 'cartoon-human';
+       human.textContent='🪓🤺';
+      human.style.animationDelay = (i * 0.5) + 's';
+      human.style.left = (Math.random() * 80 + 10) + 'vw';
+      document.body.appendChild(human);
+    }
+
+    // Hit sequence: 5 hits over 5 seconds
+    let hits = 0;
+    const hitInterval = setInterval(() => {
+      giftZone.classList.add('shake'); // add shake class
+      setTimeout(() => giftZone.classList.remove('shake'), 400); // remove after animation
+      hits++;
+      if (hits >= 5) { // after 5 shakes
+        clearInterval(hitInterval);
+        const boom = document.getElementById('boomOverlay');
+        boom.style.display = 'block';
+        boom.style.opacity = '1';
+        // Redirect after 1.5s
+        setTimeout(() => { window.location.href = 'img/secret.html'; }, 1500);
+      }
+    }, 1000); // 1 hit per second
+  } else {
+    alert("Incorrect password! Hint: Your nickname ❤️");
+  }
+});
+
+
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+const startBtn = document.getElementById('startBtn');
+startBtn.addEventListener('click', () => {
+  document.getElementById('startOverlay').style.display = 'none';
+  startCelebration();
+});
+
+function startCelebration(){
+  // ==== Balloons ====
+  (function spawnBalloons(){
+    const wrap = document.getElementById('balloons');
+    const colors=["#ffd166","#ff7eb6","#7afcff","#b5ff7d","#f6a6ff","#ffe082"];
+    const count=20;
+    for(let i=0;i<count;i++){
+      const b = document.createElement('div');
+      b.className='balloon';
+      b.style.left = (Math.random()*100)+'vw';
+      b.style.setProperty('--dur',(10+Math.random()*14)+'s');
+      b.style.setProperty('--drift',(Math.random()*40-20)+'px');
+      const c = colors[Math.floor(Math.random()*colors.length)];
+      b.style.background=`linear-gradient(180deg, ${c}, #ffffff88)`;
+      wrap.appendChild(b);
+    }
+  })();
+
+  // ==== Confetti ====
+  (function(){
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width=W; canvas.height=H;
+    const pieces = [];
+    const colors = ['#ff5fa2','#ffd166','#7afcff','#b5ff7d','#a95cff'];
+
+    function spawn(n=100){
+      for(let i=0;i<n;i++){
+        pieces.push({
+          x: Math.random()*W,
+          y: -20-Math.random()*H,
+          r: 4+Math.random()*6,
+          s: 2+Math.random()*3,
+          a: Math.random()*Math.PI,
+          col: colors[Math.floor(Math.random()*colors.length)]
+        });
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(const p of pieces){
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.a += 0.03);
+        ctx.fillStyle = p.col;
+        ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.4);
+        ctx.restore();
+        p.y += p.s;
+        p.x += Math.sin(p.a)*0.8;
+      }
+      for(let i=pieces.length-1;i>=0;i--){
+        if(pieces[i].y>H+30) pieces.splice(i,1);
+      }
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', ()=>{
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width=W; canvas.height=H;
+    });
+
+    spawn(150);
+    draw();
+    setInterval(()=>spawn(20),2000);
+  })();
+}
+</script>
+</body>
+</html>
