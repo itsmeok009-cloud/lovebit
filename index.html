@@ -6,52 +6,52 @@
 <title>Happy Birthday, Susmita! 🎂</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-    /* Start overlay */
-  .overlay{
-    position:fixed; inset:0; display:grid; place-items:center;
-    background:linear-gradient(180deg, rgba(15,16,32,.9), rgba(15,16,32,.6));
-    z-index:20; text-align:center;
-  }
-  .overlay .panel{
-    background:var(--glass); border:1px solid rgba(255,255,255,.15);
-    padding:28px; border-radius:20px; text-align:center;
-    max-width:520px;
-  }
-  .overlay .badge{
-    display:inline-flex; gap:8px; align-items:center;
-    padding:6px 12px; border-radius:999px;
-    background:var(--glass); border:1px solid rgba(255,255,255,.15);
-    font-size:14px; color:rgba(255,255,255,.7); margin-bottom:12px;
-  }
-  .overlay h2{margin:8px 0 6px;}
-  .overlay p{margin:0 0 14px; color:rgba(255,255,255,.7);}
-  .overlay .btn{
-    appearance:none; border:none; padding:12px 16px;
-    border-radius:16px; font-weight:600; cursor:pointer;
-    color:var(--text);
-    background:linear-gradient(135deg, var(--accent), var(--accent2));
-    border:1px solid rgba(255,255,255,.18);
-    backdrop-filter:blur(var(--blur));
-    transition:transform .15s ease;
-  }
-  .overlay .btn:hover{transform:translateY(-2px);}
+   /* Start overlay */
+.overlay{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background:linear-gradient(180deg, rgba(15,16,32,.9), rgba(15,16,32,.6));
+  z-index:20; text-align:center;
+}
+.overlay .panel{
+  background:var(--glass); border:1px solid rgba(255,255,255,.15);
+  padding:28px; border-radius:20px; text-align:center;
+  max-width:520px;
+}
+.overlay .badge{
+  display:inline-flex; gap:8px; align-items:center;
+  padding:6px 12px; border-radius:999px;
+  background:var(--glass); border:1px solid rgba(255,255,255,.15);
+  font-size:14px; color:rgba(255,255,255,.7); margin-bottom:12px;
+}
+.overlay h2{margin:8px 0 6px;}
+.overlay p{margin:0 0 14px; color:rgba(255,255,255,.7);}
+.overlay .btn{
+  appearance:none; border:none; padding:12px 16px;
+  border-radius:16px; font-weight:600; cursor:pointer;
+  color:var(--text);
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(var(--blur));
+  transition:transform .15s ease;
+}
+.overlay .btn:hover{transform:translateY(-2px);}
 
-  /* Balloons */
-  .balloons{position:fixed; inset:0; pointer-events:none; z-index:-1;}
-  .balloon{position:absolute; bottom:-120px; width:40px; height:55px;
-    border-radius:50% 50% 45% 55%/55% 55% 45% 45%;
-    filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));
-    animation:floatUp var(--dur) linear infinite; opacity:.85;}
-  .balloon::after{
-    content:""; position:absolute; left:50%; top:52px; width:2px; height:70px; background:rgba(255,255,255,.6);
-  }
-  @keyframes floatUp{
-    from{transform:translateY(0) translateX(0) rotate(0deg);}
-    to{transform:translateY(-120vh) translateX(var(--drift)) rotate(10deg);}
-  }
+/* Balloons */
+.balloons{position:fixed; inset:0; pointer-events:none; z-index:-1;}
+.balloon{position:absolute; bottom:-120px; width:40px; height:55px;
+  border-radius:50% 50% 45% 55%/55% 55% 45% 45%;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));
+  animation:floatUp var(--dur) linear infinite; opacity:.85;}
+.balloon::after{
+  content:""; position:absolute; left:50%; top:52px; width:2px; height:70px; background:rgba(255,255,255,.6);
+}
+@keyframes floatUp{
+  from{transform:translateY(0) translateX(0) rotate(0deg);}
+  to{transform:translateY(-120vh) translateX(var(--drift)) rotate(10deg);}
+}
 
-  /* Confetti */
-  #confetti{position:fixed; inset:0; pointer-events:none; z-index:10;}
+/* Confetti */
+#confetti{position:fixed; inset:0; pointer-events:none; z-index:10;}
 :root{
   --bg1:#0f1020; --accent:#ff5fa2; --accent2:#ffd166; --text:#f7f7fb; --muted:#c9c9d6; --card:rgba(255,255,255,.08); --glass:rgba(255,255,255,.12); --blur:10px;
 }
@@ -128,7 +128,9 @@ button#blowCandleBtn {margin-top:15px; cursor:pointer; padding:8px 15px; font-si
 #boomOverlay{position:fixed; inset:0; background:#ff0; display:none; z-index:3000; opacity:0; animation:boomAnim 1s forwards;}
 @keyframes boomAnim{0%{opacity:0; transform:scale(0);}50%{opacity:1; transform:scale(1.2);}100%{opacity:1; transform:scale(1);}}
 
+/* Footer */
 footer{padding:30px 16px; text-align:center; color:var(--muted)}
+
 /* Shake animation for gift box */
 @keyframes shake {
   0% { transform: translate(0,0) rotate(0deg); }
@@ -143,10 +145,83 @@ footer{padding:30px 16px; text-align:center; color:var(--muted)}
   90% { transform: translate(0,0) rotate(0deg); }
   100% { transform: translate(0,0) rotate(0deg); }
 }
-
 .shake {
   animation: shake 0.4s;
 }
+
+/* ================= Mobile Responsiveness ================= */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .timebox .num {
+    font-size: 24px;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gift-zone {
+    width: 180px;
+    height: 160px;
+  }
+  .gift-box {
+    width: 120px;
+    height: 90px;
+  }
+  .gift-lid {
+    width: 140px;
+    height: 32px;
+  }
+  #cakeContainer .cake {
+    width: 160px;
+    height: 160px;
+  }
+  .candle {
+    height: 28px;
+    width: 10px;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn {
+    width: 100%;
+    font-size: 14px;
+  }
+  section {
+    padding: 40px 12px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .section-sub {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .badge {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .typewriter {
+    font-size: 18px;
+  }
+}
+
 
 </style>
 </head>
@@ -205,11 +280,12 @@ footer{padding:30px 16px; text-align:center; color:var(--muted)}
 <p class="section-sub">Swap these with our favorite photos & videos!</p>
 <div class="gallery">
 <img src="img/one.jpg" alt="Memory 1">
+<img src="img/img.jpeg" alt="Memory 2">
+<img src="img/img1.jpg" alt="Memory 2">
 <img src="img/two.jpg" alt="Memory 2">
-<video controls src="img/v1.mp4"></video>
+<img src="img/IMG20240116140301.jpg" alt="Memory 2">
 <img src="img/three.jpg" alt="Memory 4">
-<video controls src="img/v2.mp4"></video>
-<video controls src="img/v3.mp4"></video>
+
 </div>
 </section>
 
@@ -248,13 +324,11 @@ footer{padding:30px 16px; text-align:center; color:var(--muted)}
 <source src="img/sahe.mp3" type="audio/mpeg" />
 </audio>
 
-<script>
 // Countdown
 let cakeShown = false;
 
-// Set target to today's midnight (start of next day)
-const targetDate = new Date();
-targetDate.setHours(24, 0, 0, 0);
+// Default: 30 second countdown from page load
+const targetDate = new Date(new Date().getTime() + 30000);
 
 function updateCountdown() {
   const now = new Date();
@@ -276,6 +350,7 @@ function updateCountdown() {
 }
 
 setInterval(updateCountdown, 1000);
+
 
 // Show Cake
 function showCake(){
